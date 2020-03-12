@@ -60,24 +60,20 @@ document.getElementById('formSubmit').addEventListener('click', (e) => {
 })
 
 function clickEventPhone() {
-    const verticals = document.querySelectorAll('.vertical');
-    for (let i = 0; i < verticals.length; i++) {
-        verticals[i].onclick = () => {
-            const verticalClicks = document.querySelectorAll('.vertical-click');
-            for (let j = 0; j < verticalClicks.length; j++) {
-                verticalClicks[j].classList.toggle('show-image');
-            }
+    document.querySelectorAll('.vertical').forEach((item) => {
+        item.onclick = () => {
+            document.querySelectorAll('.vertical-click').forEach((elem) => {
+                elem.classList.toggle('show-image');
+            })
         }
-    }
-    const horizontals = document.querySelectorAll('.horizontal');
-    for (let i = 0; i < horizontals.length; i++) {
-        horizontals[i].onclick = () => {
-            const verticalClicks = document.querySelectorAll('.horizontal-click');
-            for (let j = 0; j < verticalClicks.length; j++) {
-                verticalClicks[j].classList.toggle('show-image');
-            }
+    })
+    document.querySelectorAll('.horizontal').forEach((item) => {
+        item.onclick = () => {
+            document.querySelectorAll('.horizontal-click').forEach((elem) => {
+                elem.classList.toggle('show-image');
+            })
         }
-    }
+    })
 }
 
 class Slider {
@@ -95,6 +91,7 @@ class Slider {
         this.blockSize = blockSize;
         this.styleClass = styleClass;
     }
+
     initDraw(styleClass, blockSize, idSlider) {
         const items = document.createElement('div');
         items.id = '__thisWrapId';
@@ -114,6 +111,7 @@ class Slider {
         document.getElementById(idSlider).append(items);
         clickEventPhone();
     }
+
     moveRight(timeSlide, rightBtn) {
         rightBtn.onclick = null;
         const newSlides = document.getElementById('__thisWrapId').children;
@@ -128,6 +126,7 @@ class Slider {
             rightBtn.onclick = this.moveRight.bind(this, timeSlide, rightBtn);
         }, timeSlide);
     }
+
     moveLeft(timeSlide, leftBtn) {
         leftBtn.onclick = null;
         const newSlides = document.getElementById('__thisWrapId').children;
@@ -142,6 +141,7 @@ class Slider {
             leftBtn.onclick = this.moveLeft.bind(this, timeSlide, leftBtn);
         }, timeSlide);
     }
+    
     draw(direction = 1) {
         const item = document.createElement('div');
         if (direction === 1) {
