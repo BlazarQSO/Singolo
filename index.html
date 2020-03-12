@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="./assets/fonts/font-face.css" rel="stylesheet" />
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src="./script.js" defer></script>
 </head>
 
 <body class="body">
@@ -15,32 +16,61 @@
         <header class="header">
             <h1 class="header__title">SINGOLO<span>*</span></h1>
             <nav class="header__nav">
-                <ul class="header__nav_list">
-                    <li class="header__nav_list_item_home">HOME</li>
-                    <li class="header__nav_list_item"><span>SERVICES</span></li>
-                    <li class="header__nav_list_item"><span>PORTFOLIO</span></li>
-                    <li class="header__nav_list_item"><span>ABOUT</span></li>
-                    <li class="header__nav_list_item"><span>CONTACT</span></li>
+                <ul class="header__nav_list" id="nav">
+                    <li class="header__nav_list_item_home">
+                        <a href="#slider" class="active">HOME</a>
+                    </li>
+                    <li class="header__nav_list_item">
+                        <span>
+                            <a href="#services">SERVICES</a>
+                        </span>
+                    </li>
+                    <li class="header__nav_list_item">
+                        <span>
+                            <a href="#portfolio">PORTFOLIO</a>
+                        </span>
+                    </li>
+                    <li class="header__nav_list_item">
+                        <span>
+                            <a href="#about">ABOUT</a>
+                        </span>
+                    </li>
+                    <li class="header__nav_list_item">
+                        <span>
+                            <a href="#contact">CONTACT</a>
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </header>
-        <section class="slider">
-            <div class="slider__item">
+        <section class="slider" id="slider">
+            <div class="slider__item arrow-side" id="left">
                 <img src="./assets/images/arrow-left.png" class="slider__item_arrow-left" width="16" height="27"
                     alt="" />
             </div>
-            <div class="slider__item">
-                <div class="slider__item_vertical"></div>
-            </div>
-            <div class="slider__item">
-                <div class="slider__item_horizontal"></div>
-            </div>
-            <div class="slider__item">
+            <figure class="slides" id="containerSlides">
+                <div class="slide-item">
+                    <div class="slide__item">
+                        <img src="./assets/images/iPhone-Vertical2.png" class="slider__item_vertical-img vertical" alt="" />
+                        <img src="./assets/images/ShadowV.png" class="slider__item_vertical-shadow" alt="" />
+                        <img src="./assets/images/ScreenV.png" class="vertical-click vertical" alt="" />
+                    </div>
+                    <div class="slide__item">
+                        <img src="./assets/images/iPhone-Horizontal2.png" class="slider__item_horizontal-img horizontal" alt="" />
+                        <img src="./assets/images/ShadowH.png" class="slider__item_horizontal-shadow" alt="" />
+                        <img src="./assets/images/ScreenH.png" class="horizontal-click horizontal" alt="" />
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <img src="./assets/images/slide2.png" alt="" />
+                </div>
+            </figure>
+            <div class="slider__item arrow-side" id="right">
                 <img src="./assets/images/arrow-right.png" class="slider__item_arrow-right" width="16" height="27"
                     alt="" />
             </div>
         </section>
-        <main class="services">
+        <main class="services" id="services">
             <h2 class="services__title">Our Services</h2>
             <p class="services__text">
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo
@@ -71,7 +101,7 @@
                         <h3 class="services__column_item_article_title">Inovative Ideas</h3>
                         <p class="services__column_item_article_text">
                             Quisque luctus, quam eget molestie com-modo, lacus purus cursus purus,
-                            nec retrum tellus dolor id lorem.
+                            nec rutrum tellus dolor id lorem.
                         </p>
                     </article>
                 </section>
@@ -126,7 +156,7 @@
                 </section>
             </div>
         </main>
-        <section class="portfolio">
+        <section class="portfolio" id="portfolio">
             <h2 class="portfolio__titile">Portfolio</h2>
             <p class="portfolio__text">
                 Duis mollis,
@@ -140,13 +170,13 @@
                     lacinia odio sem nec elit.
                 </span>
             </p>
-            <nav class="portfolio__nav">
-                <button type="button" class="portfolio__nav_btn1">All</button>
-                <button type="button" class="portfolio__nav_btn2">Web Design</button>
-                <button type="button" class="portfolio__nav_btn3">Graphic Design</button>
-                <button type="button" class="portfolio__nav_btn4">Artwork</button>
+            <nav class="portfolio__nav" id="portfolioNav">
+                <button type="button" class="portfolio__nav_btn1" id="portfolio-btn1">All</button>
+                <button type="button" class="portfolio__nav_btn2" id="portfolio-btn2">Web Design</button>
+                <button type="button" class="portfolio__nav_btn3" id="portfolio-btn3">Graphic Design</button>
+                <button type="button" class="portfolio__nav_btn4" id="portfolio-btn4">Artwork</button>
             </nav>
-            <div class="portfolio__projects">
+            <div class="portfolio__projects" id="projects">
                 <img src="assets/portfolio/project1.png" width="220" height="187" alt="" />
                 <img src="assets/portfolio/project2.png" width="220" height="187" alt="" />
                 <img src="assets/portfolio/project3.png" width="220" height="187" alt="" />
@@ -159,10 +189,9 @@
                 <img src="assets/portfolio/project10.png" width="220" height="187" alt="" />
                 <img src="assets/portfolio/project11.png" width="220" height="187" alt="" />
                 <img src="assets/portfolio/project12.png" width="220" height="187" alt="" />
-                <img src="assets/portfolio/project12.png" width="220" height="187" alt="" />
             </div>
         </section>
-        <section class="about">
+        <section class="about" id="about">
             <h2 class="about__title">About Us</h2>
             <p class="about__text">
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis,
@@ -177,7 +206,8 @@
             </p>
             <div class="about__staff">
                 <section class="about__staff_person">
-                    <img src="./assets/staff/person1.png" class="about__staff_person_img" width="300" height="300" alt="" />
+                    <img src="./assets/staff/person1.png" class="about__staff_person_img" width="300" height="300"
+                        alt="" />
                     <h3 class="about__staff_person_name">Adam Jensen</h3>
                     <p class="about__staff_person_text person1_fix_txt">
                         Quisque luctus, quam eget molestie commodo, lacus purus cursus purus,
@@ -191,7 +221,8 @@
                     </div>
                 </section>
                 <section class="about__staff_person">
-                    <img src="./assets/staff/person2.png" class="about__staff_person_img" width="300" height="300" alt="" />
+                    <img src="./assets/staff/person2.png" class="about__staff_person_img" width="300" height="300"
+                        alt="" />
                     <h3 class="about__staff_person_name">Desmond Miles</h3>
                     <p class="about__staff_person_text person2_fix_txt">
                         Curabitur vestibulum eget mauris quis laoreet.
@@ -210,7 +241,8 @@
                     </div>
                 </section>
                 <section class="about__staff_person">
-                    <img src="./assets/staff/person3.png" class="about__staff_person_img" width="300" height="300" alt="" />
+                    <img src="./assets/staff/person3.png" class="about__staff_person_img" width="300" height="300"
+                        alt="" />
                     <h3 class="about__staff_person_name">Scolara Visari</h3>
                     <p class="about__staff_person_text">
                         Nulla sed nunc et tortor
@@ -225,8 +257,8 @@
                         </span>
                     </p>
                     <div class="about__staff_person_icons">
-                        <img src="./assets/icons/facebook.png" class="about__staff_person3_icons_1" width="34" height="35"
-                            alt="" />
+                        <img src="./assets/icons/facebook.png" class="about__staff_person3_icons_1" width="34"
+                            height="35" alt="" />
                         <img src="./assets/icons/google+.png" width="34" height="35" alt="" />
                         <img src="./assets/icons/twitter.png" width="34" height="35" alt="" />
                         <img src="./assets/icons/linkedin.png" width="34" height="35" alt="" />
@@ -234,7 +266,7 @@
                 </section>
             </div>
         </section>
-        <section class="quote">
+        <section class="quote" id="contact">
             <h2 class="quote__title">Get a <span>Quote</span></h2>
             <p class="quote__text">Fusce dapibus, tellus ac <span class="quote__text-span1">cursus commodo, tortor
                     mauris condimentum.</span>
@@ -245,12 +277,16 @@
                 <span class="quote__text-span5">mauris condimentum nibh.</span>
             </p>
             <div class="quote__wrap">
-                <form class="quote__form" action="" method="post">
-                    <input type="text" required class="quote__form-input" autocomplete="off" placeholder="Name (Required)" />
-                    <input type="email" required class="quote__form-input" autocomplete="off" placeholder="Email (Required)" />
-                    <input type="text" class="quote__form-input" autocomplete="off" placeholder="Subject" />
-                    <textarea class="quote__form-area" placeholder="Describe your project in detail..."></textarea>
-                    <button type="submit" class="quote__form-btn">Send</button>
+                <form class="quote__form">
+                    <input type="text" required class="quote__form-input" autocomplete="off"
+                        placeholder="Name (Required)" id="name" />
+                    <input type="email" required class="quote__form-input" autocomplete="off"
+                        placeholder="Email (Required)" id="email" />
+                    <input type="text" class="quote__form-input" autocomplete="off" placeholder="Subject"
+                        id="subject" />
+                    <textarea class="quote__form-area" placeholder="Describe your project in detail..."
+                        id="textarea"></textarea>
+                    <button type="submit" class="quote__form-btn" id="formSubmit">Send</button>
                 </form>
                 <section class="quote__info">
                     <h3 class="quote__info-title">Contact Information</h3>
@@ -270,6 +306,18 @@
                         </li>
                     </ul>
                 </section>
+                <div class="quote__info_pop-up pop-up-hidden" id="popUp">
+                    <section class="quote__info_pop-up-message">
+                        <h3 class="quote__info_pop-up-message_title">Письмо отправлено</h3>
+                        <div class="quote__info_pop-up-message_theme">
+                            <span id="theme">Без темы</span>
+                        </div>
+                        <div class="quote__info_pop-up-message_description">
+                            <span id="description">Без описания</span>
+                        </div>
+                        <button class="quote__info_pop-up-message_btn" id="send">OK</button>
+                    </section>
+                </div>
             </div>
         </section>
         <footer class="footer">
@@ -277,17 +325,21 @@
                 <span class="footer__copy-text">&copy; Copyright 2013</span>
             </div>
             <div class="footer__icons">
-                <a href="#"><img src="./assets/icons/facebook.png" class="footer__icons-item" width="34" height="34"
-                        alt="" /></a>
-                <a href="#"><img src="./assets/icons/google+.png" class="footer__icons-item" width="34" height="34"
-                        alt="" /></a>
-                <a href="#"><img src="./assets/icons/twitter.png" class="footer__icons-item" width="34" height="34"
-                        alt="" /></a>
-                <a href="#"><img src="./assets/icons/linkedin.png" class="footer__icons-item" width="34" height="34"
-                        alt="" /></a>
+                <a href="#">
+                    <img src="./assets/icons/facebook.png" class="footer__icons-item" width="34" height="34" alt="" />
+                </a>
+                <a href="#">
+                    <img src="./assets/icons/google+.png" class="footer__icons-item" width="34" height="34" alt="" />
+                </a>
+                <a href="#">
+                    <img src="./assets/icons/twitter.png" class="footer__icons-item" width="34" height="34" alt="" />
+                </a>
+                <a href="#">
+                    <img src="./assets/icons/linkedin.png" class="footer__icons-item" width="34" height="34" alt="" />
+                </a>
             </div>
         </footer>
-    </div>
+        </figu>
 </body>
 
 </html>
