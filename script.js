@@ -40,6 +40,13 @@ document.getElementById('send').addEventListener('click', () => {
 })
 
 document.getElementById('formSubmit').addEventListener('click', (e) => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const pattern = /^[-\w.]+@([A-z0-9]){1,}$/;
+    if (!name || !pattern.test(email)) {
+        return;
+    }
+
     const theme = document.getElementById('subject').value;
     if (theme) {
         document.getElementById('theme').innerHTML = `Тема: ${theme}`;
@@ -104,7 +111,7 @@ class Slider {
                 item.innerHTML = this.slider[offset];
             }
             item.classList.add(styleClass);
-            item.style.left = offset * blockSize + 'px';
+            item.style.transform = `translate3d(${offset * blockSize}px, 0, 0)`;
             offset++;
             items.append(item);
         }
@@ -117,7 +124,7 @@ class Slider {
         const newSlides = document.getElementById('__thisWrapId').children;
         let newOffset = -1;
         Array.from(newSlides).forEach((item) => {
-            item.style.left = newOffset * this.blockSize - this.blockSize + 'px';
+            item.style.transform = `translate3d(${newOffset * this.blockSize - this.blockSize}px, 0, 0)`;
             newOffset++;
         })
         this.draw();
@@ -132,7 +139,7 @@ class Slider {
         const newSlides = document.getElementById('__thisWrapId').children;
         let newOffset = 1;
         for (let i = newSlides.length - 1; i >= 0; i--) {
-            newSlides[i].style.left = newOffset * this.blockSize + this.blockSize + 'px';
+            newSlides[i].style.transform = `translate3d(${newOffset * this.blockSize + this.blockSize}px, 0, 0)`;
             newOffset--;
         }
         this.draw(-1);
@@ -141,7 +148,7 @@ class Slider {
             leftBtn.onclick = this.moveLeft.bind(this, timeSlide, leftBtn);
         }, timeSlide);
     }
-    
+
     draw(direction = 1) {
         const item = document.createElement('div');
         if (direction === 1) {
@@ -166,7 +173,7 @@ class Slider {
             }
         }
         item.classList.add(this.styleClass);
-        item.style.left = direction * this.blockSize + 'px';
+        item.style.transform = `translate3d(${direction * this.blockSize}px, 0, 0)`;
         if (direction === 1) {
             document.getElementById('__thisWrapId').append(item);
         } else {

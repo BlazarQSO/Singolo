@@ -103,7 +103,7 @@
 }
 .slider__item {
     display: flex;
-    height: 589px;
+    height: 592px;
 }
 .slider__item_arrow-left {
     margin-left: 42px;
@@ -171,6 +171,7 @@
     margin-right: 100px;
     margin-top: 118px;
     margin-left: 68px;
+    cursor: pointer;
 }
 .horizontal-click {
     display: none;
@@ -178,6 +179,7 @@
     z-index: 99;
     margin-left: 58px;
     margin-top: 188px;
+    cursor: pointer;
 }
 .show-image {
     display: block;
@@ -202,7 +204,7 @@
 
 .slide-item {
     width: 906px;
-    height: 594px;
+    height: 593px;
     position: absolute;
     left: 0;
     right: 0;
@@ -213,6 +215,18 @@
 .slide-item > img {
     object-fit: contain;
     object-position: -50px;
+}
+
+#right {
+    width: 55.5px;
+}
+#right:hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+#left:hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
 }
 /*----------------------- END SLIDER --------------------------*/
 
