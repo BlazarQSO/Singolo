@@ -93,13 +93,13 @@ class Slider {
             item.remove();
         });
         this.length = this.slider.length;
-        this.initDraw(styleClass, blockSize, idSlider);
         this.idSlider = idSlider;
         this.blockSize = blockSize;
         this.styleClass = styleClass;
+        this.initDraw();
     }
 
-    initDraw(styleClass, blockSize, idSlider) {
+    initDraw() {
         const items = document.createElement('div');
         items.id = '__thisWrapId';
         let offset = -1;
@@ -110,12 +110,12 @@ class Slider {
             } else {
                 item.innerHTML = this.slider[offset];
             }
-            item.classList.add(styleClass);
-            item.style.transform = `translate3d(${offset * blockSize}px, 0, 0)`;
+            item.classList.add(this.styleClass);
+            item.style.transform = `translate3d(${offset * this.blockSize}px, 0, 0)`;
             offset++;
             items.append(item);
         }
-        document.getElementById(idSlider).append(items);
+        document.getElementById(this.idSlider).append(items);
         clickEventPhone();
     }
 
@@ -129,6 +129,9 @@ class Slider {
         })
         this.draw();
         newSlides[0].remove();
+        newSlides[0].style.zIndex = 99;
+        newSlides[1].style.zIndex = 9999;
+        newSlides[2].style.zIndex = 99;
         setTimeout(() => {
             rightBtn.onclick = this.moveRight.bind(this, timeSlide, rightBtn);
         }, timeSlide);
@@ -144,6 +147,9 @@ class Slider {
         }
         this.draw(-1);
         newSlides[newSlides.length - 1].remove();
+        newSlides[0].style.zIndex = 99;
+        newSlides[1].style.zIndex = 9999;
+        newSlides[2].style.zIndex = 99;
         setTimeout(() => {
             leftBtn.onclick = this.moveLeft.bind(this, timeSlide, leftBtn);
         }, timeSlide);
@@ -181,10 +187,40 @@ class Slider {
         }
         clickEventPhone();
     }
+
+    setBlockSize(value) {
+        this.blockSize = value;
+        const newSlides = document.getElementById('__thisWrapId').children;
+        newSlides[0].style.transform = `translate3d(${-value}px, 0, 0)`;
+        newSlides[2].style.transform = `translate3d(${value}px, 0, 0)`;
+    }
 }
 
 const rightBtn = document.getElementById('right');
 const leftBtn = document.getElementById('left');
-const slider = new Slider('containerSlides', 906, 'slide-item');
+let slider = new Slider('containerSlides', 906, 'slide-item');
 rightBtn.onclick = slider.moveRight.bind(slider, 700, rightBtn);
 leftBtn.onclick = slider.moveLeft.bind(slider, 700, leftBtn);
+
+window.onresize = () => {
+    const curWidth = window.innerWidth;
+    let widthSlider = 906;
+    if (curWidth < 1020 && curWidth >= 768) {
+        widthSlider = 700;
+    } else if (curWidth < 768) {
+        widthSlider = 360;
+    }
+
+    slider.setBlockSize(widthSlider);
+}
+
+const btnMenu = document.getElementById('menu');
+const wrapNav = document.getElementById('wrapNav');
+const nav = document.getElementById('nav');
+const h1 = document.getElementById('h1');
+btnMenu.addEventListener('click', () => {
+    btnMenu.classList.toggle('header__menu_click');
+    wrapNav.classList.toggle('header__nav_click');
+    nav.classList.toggle('header__nav_list_click');
+    h1.classList.toggle('header__title_click');
+})
